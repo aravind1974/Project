@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>REGISTER</title>
+<link rel="stylesheet" href="form123.css" type="text/css">
+
+<script> 
+function VALIDATION() 
+  {
+     var phone = document.forms["reg"]["num"].value;
+     var pswd = document.forms["reg"]["pswd"].value;
+     var pswd1 = document.forms["reg"]["pswd1"].value;
+     var email = document.forms["reg"]["mail"].value;
+     
+     if(email.indexOf("@",0)<0)
+     {
+       window.alert("Please enter a valid email address.");
+       document.getElementById('email').focus();
+       return false;
+     } 
+     else if(email.indexOf(".",0)<0)
+     {
+       window.alert("Please enter a valid email address.");
+       document.getElementById('email').focus();
+       return false;
+     }
+     
+     else if(phone.length<10)
+     {
+       window.alert("please enter a valid phone number!!");
+       document.getElementById('num').focus();
+       return false;
+     }
+     else if(pswd.length<8)
+     {
+       alert("Password must carry 8 characters!!");
+       document.getElementById('pswd').focus();
+       return false;
+     }
+     else if(pswd!==pswd1)
+     {
+        window.alert("Passwords dont match");
+       document.getElementById('pswd1').focus();
+       return false;
+
+     }
+     else{
+      return true;
+     }
+  } 
+</script>
+</head>
+<body>
+
+   
+<form  class="f" action="reg.php" name="reg"  onsubmit="return VALIDATION()"  method="POST" > 
+<h2>Register</h2>
+<table>
+  <tr><td><p>Username</p></td>             <td><input type="text" name="name" required placeholder="Name" id="name"><br></td></tr>
+  <tr><td><p>Email</p></td>                <td><input type="email" name="mail" required placeholder="Email id" id="mail"><br></td></tr> 
+  <tr><td><p>Phone number</p></td>         <td><input type="tel" name="num" required placeholder="Phone no" id="num"><br></td></tr> 
+  <tr><td><p>Password</p></td>             <td><input type="password" name="pswd" required placeholder="Password" id="pswd"><br></td></tr> 
+  <tr><td><p>Confirm Password</p></td>     <td><input type="password" name="pswd1" required placeholder="Password" id="pswd1"><br></td></tr> 
+  <tr><td><input type="reset" class="btn" value="Reset Data"></td>
+  <td><input type="submit" class="btn" value="Submit"></td></tr>
+ 
+</table>   
+ 
+  <a href ="login.html">Login</a>
+
+ 
+</form>
+
+</body>
+</html>
